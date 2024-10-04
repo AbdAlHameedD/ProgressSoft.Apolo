@@ -1,0 +1,6 @@
+@ProgressSoft.Apolor.API_HostAddress = http://localhost:5205
+
+GET {{ProgressSoft.Apolor.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

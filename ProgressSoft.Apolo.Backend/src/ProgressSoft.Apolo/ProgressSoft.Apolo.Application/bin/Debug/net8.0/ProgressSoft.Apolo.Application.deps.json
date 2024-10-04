@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "ProgressSoft.Apolo.Application/1.0.0": {
+        "dependencies": {
+          "ProgressSoft.Apolo.Domain": "1.0.0"
+        },
+        "runtime": {
+          "ProgressSoft.Apolo.Application.dll": {}
+        }
+      },
+      "ProgressSoft.Apolo.Domain/1.0.0": {
+        "runtime": {
+          "ProgressSoft.Apolo.Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ProgressSoft.Apolo.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ProgressSoft.Apolo.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\ProgressSoft.Apolor.API.props" />
+</Project>

@@ -1,0 +1,134 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Application\\ProgressSoft.Apolo.Application.csproj": {}
+  },
+  "projects": {
+    "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Application\\ProgressSoft.Apolo.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Application\\ProgressSoft.Apolo.Application.csproj",
+        "projectName": "ProgressSoft.Apolo.Application",
+        "projectPath": "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Application\\ProgressSoft.Apolo.Application.csproj",
+        "packagesPath": "C:\\Users\\Owner\\.nuget\\packages\\",
+        "outputPath": "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Owner\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Domain\\ProgressSoft.Apolo.Domain.csproj": {
+                "projectPath": "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Domain\\ProgressSoft.Apolo.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Domain\\ProgressSoft.Apolo.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Domain\\ProgressSoft.Apolo.Domain.csproj",
+        "projectName": "ProgressSoft.Apolo.Domain",
+        "projectPath": "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Domain\\ProgressSoft.Apolo.Domain.csproj",
+        "packagesPath": "C:\\Users\\Owner\\.nuget\\packages\\",
+        "outputPath": "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Owner\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
