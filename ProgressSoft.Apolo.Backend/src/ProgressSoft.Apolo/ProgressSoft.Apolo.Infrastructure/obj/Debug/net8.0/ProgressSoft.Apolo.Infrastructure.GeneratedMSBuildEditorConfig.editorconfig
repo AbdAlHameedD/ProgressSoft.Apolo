@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ProgressSoft.Apolo.Infrastructure
-build_property.ProjectDir = C:\ProgressSoft.Apolo\ProgressSoft.Apolo.Backend\src\ProgressSoft.Apolo\ProgressSoft.Apolo.Infrastructure\
+build_property.ProjectDir = C:\Users\Owner\Documents\GitHub\ProgressSoft.Apolo\ProgressSoft.Apolo.Backend\src\ProgressSoft.Apolo\ProgressSoft.Apolo.Infrastructure\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

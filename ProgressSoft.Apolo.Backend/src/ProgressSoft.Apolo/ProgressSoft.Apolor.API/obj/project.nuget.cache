@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "huI2FHR7PD0=",
+  "dgSpecHash": "ZpiHvbwcOOc=",
   "success": true,
-  "projectFilePath": "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolor.API\\ProgressSoft.Apolor.API.csproj",
+  "projectFilePath": "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolor.API\\ProgressSoft.Apolor.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Owner\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Owner\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

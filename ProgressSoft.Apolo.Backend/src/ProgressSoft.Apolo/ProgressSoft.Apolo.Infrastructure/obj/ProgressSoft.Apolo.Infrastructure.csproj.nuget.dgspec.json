@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Infrastructure\\ProgressSoft.Apolo.Infrastructure.csproj": {}
+    "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Infrastructure\\ProgressSoft.Apolo.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Application\\ProgressSoft.Apolo.Application.csproj": {
+    "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Application\\ProgressSoft.Apolo.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Application\\ProgressSoft.Apolo.Application.csproj",
+        "projectUniqueName": "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Application\\ProgressSoft.Apolo.Application.csproj",
         "projectName": "ProgressSoft.Apolo.Application",
-        "projectPath": "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Application\\ProgressSoft.Apolo.Application.csproj",
+        "projectPath": "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Application\\ProgressSoft.Apolo.Application.csproj",
         "packagesPath": "C:\\Users\\Owner\\.nuget\\packages\\",
-        "outputPath": "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Application\\obj\\",
+        "outputPath": "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Owner\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -29,8 +29,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Domain\\ProgressSoft.Apolo.Domain.csproj": {
-                "projectPath": "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Domain\\ProgressSoft.Apolo.Domain.csproj"
+              "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Domain\\ProgressSoft.Apolo.Domain.csproj": {
+                "projectPath": "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Domain\\ProgressSoft.Apolo.Domain.csproj"
               }
             }
           }
@@ -69,14 +69,14 @@
         }
       }
     },
-    "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Domain\\ProgressSoft.Apolo.Domain.csproj": {
+    "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Domain\\ProgressSoft.Apolo.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Domain\\ProgressSoft.Apolo.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Domain\\ProgressSoft.Apolo.Domain.csproj",
         "projectName": "ProgressSoft.Apolo.Domain",
-        "projectPath": "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Domain\\ProgressSoft.Apolo.Domain.csproj",
+        "projectPath": "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Domain\\ProgressSoft.Apolo.Domain.csproj",
         "packagesPath": "C:\\Users\\Owner\\.nuget\\packages\\",
-        "outputPath": "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Domain\\obj\\",
+        "outputPath": "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Owner\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -130,14 +130,14 @@
         }
       }
     },
-    "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Infrastructure\\ProgressSoft.Apolo.Infrastructure.csproj": {
+    "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Infrastructure\\ProgressSoft.Apolo.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Infrastructure\\ProgressSoft.Apolo.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Infrastructure\\ProgressSoft.Apolo.Infrastructure.csproj",
         "projectName": "ProgressSoft.Apolo.Infrastructure",
-        "projectPath": "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Infrastructure\\ProgressSoft.Apolo.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Infrastructure\\ProgressSoft.Apolo.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Owner\\.nuget\\packages\\",
-        "outputPath": "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Owner\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -155,8 +155,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Application\\ProgressSoft.Apolo.Application.csproj": {
-                "projectPath": "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Application\\ProgressSoft.Apolo.Application.csproj"
+              "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Application\\ProgressSoft.Apolo.Application.csproj": {
+                "projectPath": "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Application\\ProgressSoft.Apolo.Application.csproj"
               }
             }
           }

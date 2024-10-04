@@ -1,8 +1,22 @@
+using Microsoft.EntityFrameworkCore;
+using ProgressSoft.Apolo.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+builder.Services.AddDbContext<ApoloDbContext>(options => {
+    string? apoloConnectionString = builder.Configuration.GetConnectionString("ApoloConnectionString");
+
+    if (apoloConnectionString is null)  {
+        throw new NullReferenceException("Connection string not exist in appsettings.json file");
+    } else {
+        options.UseSqlServer(apoloConnectionString);
+    }
+});
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

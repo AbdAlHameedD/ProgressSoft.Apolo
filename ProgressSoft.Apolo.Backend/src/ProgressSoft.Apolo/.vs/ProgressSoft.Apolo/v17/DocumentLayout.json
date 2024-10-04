@@ -1,17 +1,21 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\",
+  "WorkspaceRootPath": "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3AA699F4-96C9-45F2-BCB7-A32F8FAEACE1}|ProgressSoft.Apolor.API\\ProgressSoft.Apolor.API.csproj|c:\\progresssoft.apolo\\progresssoft.apolo.backend\\src\\progresssoft.apolo\\progresssoft.apolor.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F1252D9E-13AD-452B-BACF-C485854A743E}|ProgressSoft.Apolo.Infrastructure\\ProgressSoft.Apolo.Infrastructure.csproj|c:\\users\\owner\\documents\\github\\progresssoft.apolo\\progresssoft.apolo.backend\\src\\progresssoft.apolo\\progresssoft.apolo.infrastructure\\data\\apolodbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F1252D9E-13AD-452B-BACF-C485854A743E}|ProgressSoft.Apolo.Infrastructure\\ProgressSoft.Apolo.Infrastructure.csproj|solutionrelative:progresssoft.apolo.infrastructure\\data\\apolodbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3AA699F4-96C9-45F2-BCB7-A32F8FAEACE1}|ProgressSoft.Apolor.API\\ProgressSoft.Apolor.API.csproj|c:\\users\\owner\\documents\\github\\progresssoft.apolo\\progresssoft.apolo.backend\\src\\progresssoft.apolo\\progresssoft.apolor.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3AA699F4-96C9-45F2-BCB7-A32F8FAEACE1}|ProgressSoft.Apolor.API\\ProgressSoft.Apolor.API.csproj|solutionrelative:progresssoft.apolor.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{17ED8E77-4CA1-4182-BE21-7C40FF7B8A52}|ProgressSoft.Apolo.Domain\\ProgressSoft.Apolo.Domain.csproj|c:\\progresssoft.apolo\\progresssoft.apolo.backend\\src\\progresssoft.apolo\\progresssoft.apolo.domain\\progresssoft.apolo.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{17ED8E77-4CA1-4182-BE21-7C40FF7B8A52}|ProgressSoft.Apolo.Domain\\ProgressSoft.Apolo.Domain.csproj|c:\\users\\owner\\documents\\github\\progresssoft.apolo\\progresssoft.apolo.backend\\src\\progresssoft.apolo\\progresssoft.apolo.domain\\progresssoft.apolo.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{17ED8E77-4CA1-4182-BE21-7C40FF7B8A52}|ProgressSoft.Apolo.Domain\\ProgressSoft.Apolo.Domain.csproj|solutionrelative:progresssoft.apolo.domain\\progresssoft.apolo.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F1252D9E-13AD-452B-BACF-C485854A743E}|ProgressSoft.Apolo.Infrastructure\\ProgressSoft.Apolo.Infrastructure.csproj|c:\\progresssoft.apolo\\progresssoft.apolo.backend\\src\\progresssoft.apolo\\progresssoft.apolo.infrastructure\\progresssoft.apolo.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{F1252D9E-13AD-452B-BACF-C485854A743E}|ProgressSoft.Apolo.Infrastructure\\ProgressSoft.Apolo.Infrastructure.csproj|c:\\users\\owner\\documents\\github\\progresssoft.apolo\\progresssoft.apolo.backend\\src\\progresssoft.apolo\\progresssoft.apolo.infrastructure\\progresssoft.apolo.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{F1252D9E-13AD-452B-BACF-C485854A743E}|ProgressSoft.Apolo.Infrastructure\\ProgressSoft.Apolo.Infrastructure.csproj|solutionrelative:progresssoft.apolo.infrastructure\\progresssoft.apolo.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
@@ -31,10 +35,23 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ApoloDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Infrastructure\\Data\\ApoloDbContext.cs",
+              "RelativeDocumentMoniker": "ProgressSoft.Apolo.Infrastructure\\Data\\ApoloDbContext.cs",
+              "ToolTip": "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Infrastructure\\Data\\ApoloDbContext.cs",
+              "RelativeToolTip": "ProgressSoft.Apolo.Infrastructure\\Data\\ApoloDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-04T14:33:11.61Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolor.API\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolor.API\\Program.cs",
               "RelativeDocumentMoniker": "ProgressSoft.Apolor.API\\Program.cs",
-              "ToolTip": "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolor.API\\Program.cs",
+              "ToolTip": "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolor.API\\Program.cs",
               "RelativeToolTip": "ProgressSoft.Apolor.API\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -43,29 +60,27 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ProgressSoft.Apolo.Domain.csproj",
-              "DocumentMoniker": "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Domain\\ProgressSoft.Apolo.Domain.csproj",
+              "DocumentMoniker": "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Domain\\ProgressSoft.Apolo.Domain.csproj",
               "RelativeDocumentMoniker": "ProgressSoft.Apolo.Domain\\ProgressSoft.Apolo.Domain.csproj",
-              "ToolTip": "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Domain\\ProgressSoft.Apolo.Domain.csproj",
+              "ToolTip": "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Domain\\ProgressSoft.Apolo.Domain.csproj",
               "RelativeToolTip": "ProgressSoft.Apolo.Domain\\ProgressSoft.Apolo.Domain.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-10-03T15:45:36.96Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-03T15:45:36.96Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ProgressSoft.Apolo.Infrastructure.csproj",
-              "DocumentMoniker": "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Infrastructure\\ProgressSoft.Apolo.Infrastructure.csproj",
+              "DocumentMoniker": "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Infrastructure\\ProgressSoft.Apolo.Infrastructure.csproj",
               "RelativeDocumentMoniker": "ProgressSoft.Apolo.Infrastructure\\ProgressSoft.Apolo.Infrastructure.csproj",
-              "ToolTip": "C:\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Infrastructure\\ProgressSoft.Apolo.Infrastructure.csproj",
+              "ToolTip": "C:\\Users\\Owner\\Documents\\GitHub\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Backend\\src\\ProgressSoft.Apolo\\ProgressSoft.Apolo.Infrastructure\\ProgressSoft.Apolo.Infrastructure.csproj",
               "RelativeToolTip": "ProgressSoft.Apolo.Infrastructure\\ProgressSoft.Apolo.Infrastructure.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-10-03T15:45:20.193Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-03T15:45:20.193Z"
             }
           ]
         }
