@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using ProgressSoft.Apolo.Application;
 using ProgressSoft.Apolo.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +17,16 @@ builder.Services.AddDbContext<ApoloDbContext>(options => {
         options.UseSqlServer(apoloConnectionString);
     }
 });
+
+#region Repositories Injections
+builder.Services.AddScoped<IBusinessCardRepository, BusinessCardRepository>();
+#endregion
+
+#region AutoMapperProfiles
+builder.Services.AddAutoMapper(typeof(BusinessCardMappingProfile));
+#endregion
+
+builder.Services.AddSingleton<ResultHelper>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
