@@ -1,4 +1,5 @@
-﻿using ProgressSoft.Apolo.Application;
+﻿using System.Runtime.CompilerServices;
+using ProgressSoft.Apolo.Application;
 using ProgressSoft.Apolo.Domain;
 
 namespace ProgressSoft.Apolo.Infrastructure;
@@ -6,9 +7,11 @@ namespace ProgressSoft.Apolo.Infrastructure;
 public class BusinessCardRepository : BaseRepository<BusinessCard>, IBusinessCardRepository
 {
     private readonly ApoloDbContext _apoloDbContext;
+    private readonly ResultHelper _resultHelper;
 
-    public BusinessCardRepository(ApoloDbContext apoloDbContext) : base(apoloDbContext) {
+    public BusinessCardRepository(ApoloDbContext apoloDbContext, ResultHelper resultHelper) : base(apoloDbContext, resultHelper) {
         _apoloDbContext = apoloDbContext;
+        _resultHelper = resultHelper;
     }
 
     /// <summary>
@@ -29,19 +32,11 @@ public class BusinessCardRepository : BaseRepository<BusinessCard>, IBusinessCar
                 _apoloDbContext.Remove(entity);
             }
 
-            return new Result<BusinessCard>
-            {
-                Status = OperationStatus.Success,
-                Data = entity
-            };
+            return _resultHelper.GenerateSuccessResult<BusinessCard>(entity);
         }
         catch (Exception ex)
         {
-            return new Result<BusinessCard>
-            {
-                Status = OperationStatus.Failed,
-                Message = ex.Message
-            };
+            return _resultHelper.GenerateFailedResult<BusinessCard>(ex);
         }
     }
 
@@ -56,19 +51,11 @@ public class BusinessCardRepository : BaseRepository<BusinessCard>, IBusinessCar
             IQueryable<BusinessCard> businessCards = from businessCard in _apoloDbContext.BusinessCards
                                                      select businessCard;
 
-            return new Result<IQueryable<BusinessCard>> 
-            {
-                Status = OperationStatus.Success,
-                Data = businessCards
-            };
+            return _resultHelper.GenerateSuccessResult<IQueryable<BusinessCard>>(businessCards);
         } 
         catch (Exception ex) 
         {
-            return new Result<IQueryable<BusinessCard>>
-            {
-                Status = OperationStatus.Failed,
-                Message = ex.Message
-            };
+            return _resultHelper.GenerateFailedResult<IQueryable<BusinessCard>>(ex);
         }
     }
 
@@ -82,21 +69,12 @@ public class BusinessCardRepository : BaseRepository<BusinessCard>, IBusinessCar
         try
         {
             _apoloDbContext.Add(entity);
-            bool isInserted = _apoloDbContext.SaveChangesAsync().Result > 0;
 
-            return new Result<BusinessCard>
-            {
-                Status = OperationStatus.Success,
-                Data = entity
-            };
+            return _resultHelper.GenerateSuccessResult<BusinessCard>(entity);
         }
         catch (Exception ex)
         {
-            return new Result<BusinessCard>
-            {
-                Status = OperationStatus.Failed,
-                Message = ex.Message
-            };
+            return _resultHelper.GenerateFailedResult<BusinessCard>(ex);
         }
     }
 }

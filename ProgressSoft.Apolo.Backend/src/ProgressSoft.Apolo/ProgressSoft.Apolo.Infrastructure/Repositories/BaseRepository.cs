@@ -6,10 +6,12 @@ namespace ProgressSoft.Apolo.Infrastructure;
 public abstract class BaseRepository<T> where T : class
 {
     private readonly ApoloDbContext _apoloDbContext;
+    private readonly ResultHelper _resultHelper;
 
-    public BaseRepository(ApoloDbContext apoloDbContext)
+    public BaseRepository(ApoloDbContext apoloDbContext, ResultHelper resultHelper)
     {
         _apoloDbContext = apoloDbContext;
+        _resultHelper = resultHelper;
     }
 
     /// <summary>
@@ -23,19 +25,11 @@ public abstract class BaseRepository<T> where T : class
         {
             _apoloDbContext.Update(entity);
 
-            return new Result<T>
-            {
-                Status = OperationStatus.Success,
-                Data = entity
-            };
+            return _resultHelper.GenerateSuccessResult(entity);
         }
         catch (Exception ex)
         {
-            return new Result<T>
-            {
-                Status = OperationStatus.Failed,
-                Message = ex.Message
-            };
+            return _resultHelper.GenerateFailedResult<T>(ex);
         }
     }
 }
