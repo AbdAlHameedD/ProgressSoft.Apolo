@@ -22,6 +22,10 @@ builder.Services.AddDbContext<ApoloDbContext>(options => {
 builder.Services.AddScoped<IBusinessCardRepository, BusinessCardRepository>();
 #endregion
 
+#region Services Injections
+builder.Services.AddScoped<IBusinessCardService, BusinessCardService>();
+#endregion
+
 #region AutoMapperProfiles
 builder.Services.AddAutoMapper(typeof(BusinessCardMappingProfile));
 #endregion
