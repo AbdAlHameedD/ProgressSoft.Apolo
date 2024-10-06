@@ -67,11 +67,11 @@ public class BusinessCardService : IBusinessCardService
         }
     }
 
-    public Result<IEnumerable<BusinessCardModel>> GetAll()
+    public Result<IEnumerable<BusinessCardModel>> GetAll(BusinessCardFilter filter)
     {
         try
         {
-            Result<IQueryable<BusinessCard>> domainResult = _businessCardRepository.Get();
+            Result<IQueryable<BusinessCard>> domainResult = _businessCardRepository.Get(filter);
             
             IEnumerable<BusinessCardModel>? businessCardModels = domainResult.Data?.Select(b => _mapper.Map<BusinessCardModel>(b));
             

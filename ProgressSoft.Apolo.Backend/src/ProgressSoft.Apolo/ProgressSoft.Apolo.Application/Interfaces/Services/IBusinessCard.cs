@@ -6,4 +6,5 @@ public interface IBusinessCardService : IBaseService<BusinessCardModel>
 {
     Result<BusinessCardModel> Add(AddBusinessCardCommand command);
     Result<BusinessCardModel> Edit(BusinessCardModel model);
+    Result<IEnumerable<BusinessCardModel>> GetAll(BusinessCardFilter filter);
 }

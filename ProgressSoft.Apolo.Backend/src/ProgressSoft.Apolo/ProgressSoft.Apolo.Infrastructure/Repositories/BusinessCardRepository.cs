@@ -44,14 +44,20 @@ public class BusinessCardRepository : BaseRepository<BusinessCard>, IBusinessCar
     /// Get all business cards that stored in the database
     /// </summary>
     /// <returns>All business cards</returns>
-    public Result<IQueryable<BusinessCard>> Get()
+    public Result<IQueryable<BusinessCard>> Get(BusinessCardFilter filter)
     {
         try 
         {
             IQueryable<BusinessCard> businessCards = from businessCard in _apoloDbContext.BusinessCards
+                                                     where (filter.Name == null || businessCard.Name.Contains(filter.Name)) &&
+                                                           (filter.Gender == null || businessCard.Gender == filter.Gender) &&
+                                                           (filter.Email == null || businessCard.Email.Contains(filter.Email)) &&
+                                                           (filter.Phone == null || businessCard.Phone.Contains(filter.Phone)) &&
+                                                           (filter.FromBirthDate == null || businessCard.BirthOfDate >= filter.FromBirthDate) &&
+                                                           (filter.ToBirthDate == null || businessCard.BirthOfDate <= filter.ToBirthDate)
                                                      select businessCard;
 
-            return _resultHelper.GenerateSuccessResult<IQueryable<BusinessCard>>(businessCards);
+            return _resultHelper.GenerateSuccessResult(businessCards);
         } 
         catch (Exception ex) 
         {
