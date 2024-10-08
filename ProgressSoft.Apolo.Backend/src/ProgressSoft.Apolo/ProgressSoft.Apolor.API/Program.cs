@@ -30,7 +30,13 @@ builder.Services.AddScoped<IBusinessCardService, BusinessCardService>();
 builder.Services.AddAutoMapper(typeof(BusinessCardMappingProfile));
 #endregion
 
+#region Singleton Services
 builder.Services.AddSingleton<ResultHelper>();
+#endregion
+
+#region Transient Services
+builder.Services.AddTransient<ICommandHandler<AddBusinessCardCommand, Result<BusinessCardModel>>, AddBusinessCardCommandHandler>();
+#endregion
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -44,6 +50,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(x => x
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .SetIsOriginAllowed(origin => true)
+    .AllowCredentials());
 
 app.UseAuthorization();
 
