@@ -8,6 +8,8 @@ public class BusinessCardMappingProfile : Profile
 {
     public BusinessCardMappingProfile()
     {
+        AllowNullCollections = true;
+
         CreateMap<BusinessCard, BusinessCardModel>()
             .ForMember(dest => dest.Photo, opt => opt.MapFrom(src => (src.Photo != null) ? src.Photo.ToString() : null))
             .ReverseMap()
