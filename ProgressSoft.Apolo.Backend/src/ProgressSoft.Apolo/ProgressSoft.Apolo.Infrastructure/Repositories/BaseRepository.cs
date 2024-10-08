@@ -1,5 +1,4 @@
-﻿using Microsoft.Identity.Client;
-using ProgressSoft.Apolo.Application;
+﻿using ProgressSoft.Apolo.Application;
 
 namespace ProgressSoft.Apolo.Infrastructure;
 
@@ -24,6 +23,8 @@ public abstract class BaseRepository<T> where T : class
         try 
         {
             _apoloDbContext.Update(entity);
+
+            bool isUpdated = _apoloDbContext.SaveChangesAsync().Result > 0;
 
             return _resultHelper.GenerateSuccessResult(entity);
         }

@@ -1,5 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-using ProgressSoft.Apolo.Application;
+﻿using ProgressSoft.Apolo.Application;
 using ProgressSoft.Apolo.Domain;
 
 namespace ProgressSoft.Apolo.Infrastructure;
@@ -30,6 +29,8 @@ public class BusinessCardRepository : BaseRepository<BusinessCard>, IBusinessCar
             if (entity is not null) 
             {
                 _apoloDbContext.Remove(entity);
+
+                bool isDeleted = _apoloDbContext.SaveChangesAsync().Result > 0;
             }
 
             return _resultHelper.GenerateSuccessResult<BusinessCard>(entity);
@@ -75,8 +76,10 @@ public class BusinessCardRepository : BaseRepository<BusinessCard>, IBusinessCar
         try
         {
             _apoloDbContext.Add(entity);
+            
+            bool isInserted = _apoloDbContext.SaveChangesAsync().Result > 0;
 
-            return _resultHelper.GenerateSuccessResult<BusinessCard>(entity);
+            return _resultHelper.GenerateSuccessResult(entity);
         }
         catch (Exception ex)
         {
