@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Environment } from '../../../constants/environment';
 
 @Component({
   selector: 'app-navbar',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   standalone: true
 })
 export class NavbarComponent {
-
+  public readonly title: string = Environment.WEBSITE_TITLE;
 }
