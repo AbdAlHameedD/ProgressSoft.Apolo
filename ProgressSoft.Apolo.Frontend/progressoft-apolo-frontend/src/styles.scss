@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+@font-face {
+    font-family: 'Leckerli One';
+    src: url('assets/fonts/LeckerliOne-Regular.ttf');
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.font-leckerli-one {
+    font-family: 'Leckerli One', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
