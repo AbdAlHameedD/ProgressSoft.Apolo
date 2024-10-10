@@ -8,7 +8,8 @@ public class BusinessCardRepository : BaseRepository<BusinessCard>, IBusinessCar
     private readonly ApoloDbContext _apoloDbContext;
     private readonly ResultHelper _resultHelper;
 
-    public BusinessCardRepository(ApoloDbContext apoloDbContext, ResultHelper resultHelper) : base(apoloDbContext, resultHelper) {
+    public BusinessCardRepository(ApoloDbContext apoloDbContext, ResultHelper resultHelper) : base(apoloDbContext, resultHelper)
+    {
         _apoloDbContext = apoloDbContext;
         _resultHelper = resultHelper;
     }
@@ -23,10 +24,10 @@ public class BusinessCardRepository : BaseRepository<BusinessCard>, IBusinessCar
         try
         {
             BusinessCard? entity = (from businessCard in _apoloDbContext.BusinessCards
-                                                 where businessCard.Id == id
-                                                 select businessCard).FirstOrDefault();
+                                    where businessCard.Id == id
+                                    select businessCard).FirstOrDefault();
 
-            if (entity is not null) 
+            if (entity is not null)
             {
                 _apoloDbContext.Remove(entity);
 
@@ -42,12 +43,33 @@ public class BusinessCardRepository : BaseRepository<BusinessCard>, IBusinessCar
     }
 
     /// <summary>
+    /// Get business card that match target id
+    /// </summary>
+    /// <param name="id">Business card identity</param>
+    /// <returns>Matched entity</returns>
+    public Result<BusinessCard> FindById(int id)
+    {
+        try
+        {
+            BusinessCard? entity = (from businessCard in _apoloDbContext.BusinessCards
+                                          where businessCard.Id == id
+                                          select businessCard).First();
+
+            return _resultHelper.GenerateSuccessResult(entity);
+        }
+        catch (Exception ex)
+        {
+            return _resultHelper.GenerateFailedResult<BusinessCard>(ex);
+        }
+    }
+
+    /// <summary>
     /// Get all business cards that stored in the database
     /// </summary>
     /// <returns>All business cards</returns>
     public Result<IQueryable<BusinessCard>> Get(BusinessCardFilter filter)
     {
-        try 
+        try
         {
             IQueryable<BusinessCard> businessCards = from businessCard in _apoloDbContext.BusinessCards
                                                      where (filter.Name == null || businessCard.Name.Contains(filter.Name)) &&
@@ -59,8 +81,8 @@ public class BusinessCardRepository : BaseRepository<BusinessCard>, IBusinessCar
                                                      select businessCard;
 
             return _resultHelper.GenerateSuccessResult(businessCards);
-        } 
-        catch (Exception ex) 
+        }
+        catch (Exception ex)
         {
             return _resultHelper.GenerateFailedResult<IQueryable<BusinessCard>>(ex);
         }
@@ -76,7 +98,7 @@ public class BusinessCardRepository : BaseRepository<BusinessCard>, IBusinessCar
         try
         {
             _apoloDbContext.Add(entity);
-            
+
             bool isInserted = _apoloDbContext.SaveChangesAsync().Result > 0;
 
             return _resultHelper.GenerateSuccessResult(entity);

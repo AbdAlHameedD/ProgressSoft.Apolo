@@ -82,4 +82,20 @@ public class BusinessCardService : IBusinessCardService
             return _resultHelper.GenerateFailedResult<IEnumerable<BusinessCardModel>>(ex);
         }
     }
+
+    public Result<BusinessCardModel> GetById(int id)
+    {
+        try
+        {
+            Result<BusinessCard> domainResult = _businessCardRepository.FindById(id);
+
+            BusinessCardModel model = _mapper.Map<BusinessCardModel>(domainResult.Data);
+
+            return _resultHelper.GenerateResultFromDifferentResultType<BusinessCardModel, BusinessCard>(domainResult);
+        }
+        catch (Exception ex)
+        {
+            return _resultHelper.GenerateFailedResult<BusinessCardModel>(ex);
+        }
+    }
 }
