@@ -1,6 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using ProgressSoft.Apolo.Application;
+using ProgressSoft.Apolo.Application.Interfaces.Repositories;
+using ProgressSoft.Apolo.Application.Interfaces.Services;
+using ProgressSoft.Apolo.Application.Mappings;
 using ProgressSoft.Apolo.Infrastructure;
+using ProgressSoft.Apolo.Infrastructure.Repositories;
+using ProgressSoft.Apolo.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,14 +25,17 @@ builder.Services.AddDbContext<ApoloDbContext>(options => {
 
 #region Repositories Injections
 builder.Services.AddScoped<IBusinessCardRepository, BusinessCardRepository>();
+builder.Services.AddScoped<IImageRepository, ImageRepository>();
 #endregion
 
 #region Services Injections
 builder.Services.AddScoped<IBusinessCardService, BusinessCardService>();
+builder.Services.AddScoped<IImageService, ImageService>();
 #endregion
 
 #region AutoMapperProfiles
 builder.Services.AddAutoMapper(typeof(BusinessCardMappingProfile));
+builder.Services.AddAutoMapper(typeof(ImageMappingProfile));
 #endregion
 
 #region Singleton Services
