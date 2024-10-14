@@ -19,6 +19,12 @@ namespace ProgressSoft.Apolo.Infrastructure.Data.EntitiesConfigurations
                 .HasColumnOrder(1)
                 .HasColumnType("varbinary(max)")
                 .IsRequired();
+
+            builder.Property(i => i.Type)
+                .HasColumnOrder(2)
+                .HasColumnType("varchar(10)")
+                .HasMaxLength(10)
+                .IsRequired();
             #endregion
 
             #region Constraints
