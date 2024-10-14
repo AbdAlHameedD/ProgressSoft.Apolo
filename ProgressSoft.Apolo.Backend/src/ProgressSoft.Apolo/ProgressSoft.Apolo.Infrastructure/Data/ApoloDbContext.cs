@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProgressSoft.Apolo.Domain;
+using ProgressSoft.Apolo.Infrastructure.Data.EntitiesConfigurations;
 
 namespace ProgressSoft.Apolo.Infrastructure;
 
@@ -21,7 +22,9 @@ public class ApoloDbContext : DbContext
         base.OnModelCreating(modelBuilder);
         
         modelBuilder.ApplyConfiguration(new BusinessCardEntityTypeConfiguration());
+        modelBuilder.ApplyConfiguration(new ImageEntityTypeConfiguration());
     }
 
     public DbSet<BusinessCard> BusinessCards { get; set; }
+    public DbSet<Image> Images { get; set; }
 }

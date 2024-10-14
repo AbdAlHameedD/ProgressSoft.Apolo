@@ -15,8 +15,4 @@
     <ProjectReference Include="..\ProgressSoft.Apolo.Infrastructure\ProgressSoft.Apolo.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>

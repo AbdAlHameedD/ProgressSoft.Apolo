@@ -8,6 +8,8 @@ public class BusinessCard
     public required DateOnly BirthOfDate { get; init; }
     public required string Email { get; init; }
     public required string Phone { get; init; }
-    public byte[]? Photo { get; init; }
+    public int? ImageId { get; init; }
     public required string Address { get; init; }
+
+    public Image? Image { get; init; }
 }

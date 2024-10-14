@@ -87,25 +87,4 @@ public class BusinessCardRepository : BaseRepository<BusinessCard>, IBusinessCar
             return _resultHelper.GenerateFailedResult<IQueryable<BusinessCard>>(ex);
         }
     }
-
-    /// <summary>
-    /// Insert new business card in the database
-    /// </summary>
-    /// <param name="entity">Represent business card to insert</param>
-    /// <returns>Inserted entity</returns>
-    public Result<BusinessCard> Insert(BusinessCard entity)
-    {
-        try
-        {
-            _apoloDbContext.Add(entity);
-
-            bool isInserted = _apoloDbContext.SaveChangesAsync().Result > 0;
-
-            return _resultHelper.GenerateSuccessResult(entity);
-        }
-        catch (Exception ex)
-        {
-            return _resultHelper.GenerateFailedResult<BusinessCard>(ex);
-        }
-    }
 }

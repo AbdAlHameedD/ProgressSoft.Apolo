@@ -44,9 +44,9 @@ public class BusinessCardEntityTypeConfiguration : IEntityTypeConfiguration<Busi
             .IsRequired()
             .IsUnicode(false);
 
-        builder.Property(bc => bc.Photo)
+        builder.Property(bc => bc.ImageId)
             .HasColumnOrder(7)
-            .HasColumnType("varbinary(max)");
+            .HasColumnType("int");
 
         builder.Property(bc => bc.Address)
             .HasColumnOrder(6)
@@ -56,10 +56,17 @@ public class BusinessCardEntityTypeConfiguration : IEntityTypeConfiguration<Busi
             .IsUnicode(false);
         #endregion
 
+        #region Relationships
+        builder.HasOne(bc => bc.Image)
+            .WithMany(i => i.BusinessCards)
+            .HasForeignKey(bc => bc.ImageId)
+            .HasConstraintName("FK_Image_BusinessCard");
+        #endregion
+
 
         #region Constraints
         builder.HasKey(bc => bc.Id)
-            .HasName("PrimaryKey_ BusinessCards");
+            .HasName("PrimaryKey_BusinessCards");
 
         builder.HasIndex(bc => bc.Name, "Unique_BusinessCard_Name")
             .IsUnique();
