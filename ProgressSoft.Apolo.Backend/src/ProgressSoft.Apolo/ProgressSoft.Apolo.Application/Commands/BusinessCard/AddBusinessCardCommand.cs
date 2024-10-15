@@ -9,6 +9,6 @@ public class AddBusinessCardCommand
     public required DateOnly BirthOfDate { get; set; }
     public required string Email { get; set; }
     public required string Phone { get; set; }
-    public string? Photo { get; set; }
+    public int? ImageId { get; set; }
     public required string Address { get; set; }
 }
