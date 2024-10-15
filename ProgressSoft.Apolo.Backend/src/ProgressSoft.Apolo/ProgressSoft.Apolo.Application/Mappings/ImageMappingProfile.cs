@@ -12,7 +12,9 @@ namespace ProgressSoft.Apolo.Application.Mappings
 
             CreateMap<Image, ImageModel>()
                 .ForMember(src => src.BusinessCards, opt => opt.MapFrom(dest => dest.BusinessCards))
-                .ReverseMap();
+                .ForMember(src => src.EncodedImage, opt => opt.MapFrom(dest => Convert.ToBase64String(dest.EncodedImage)))
+                .ReverseMap()
+                .ForMember(src => src.EncodedImage, opt => opt.MapFrom(dest => Convert.FromBase64String(dest.EncodedImage)));
         }
     }
 }
