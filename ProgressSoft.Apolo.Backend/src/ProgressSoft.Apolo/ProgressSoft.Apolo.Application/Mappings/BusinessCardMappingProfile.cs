@@ -9,7 +9,9 @@ public class BusinessCardMappingProfile : Profile
     {
         AllowNullCollections = true;
 
-        CreateMap<BusinessCard, BusinessCardModel>();
+        CreateMap<BusinessCard, BusinessCardModel>()
+            .ReverseMap()
+            .ForMember(dest => dest.Image, opt => opt.Ignore());
 
         CreateMap<AddBusinessCardCommand, BusinessCard>()
             .ForMember(dest => dest.Id, opt => opt.MapFrom(src => 0));
