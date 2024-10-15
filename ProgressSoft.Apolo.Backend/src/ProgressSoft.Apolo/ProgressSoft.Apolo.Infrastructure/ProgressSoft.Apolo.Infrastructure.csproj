@@ -22,10 +22,4 @@
     <ProjectReference Include="..\ProgressSoft.Apolo.Application\ProgressSoft.Apolo.Application.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Data\EntitiesConfigurations\" />
-    <Folder Include="Repositories\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>
