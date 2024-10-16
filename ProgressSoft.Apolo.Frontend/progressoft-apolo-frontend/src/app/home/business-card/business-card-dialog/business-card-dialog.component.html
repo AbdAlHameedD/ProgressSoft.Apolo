@@ -1,0 +1,127 @@
+<h2 mat-dialog-title class="text-center mb-2">{{ confirmButtonLabel }} <b>{{ data.name }}</b> Business Card</h2>
+<mat-dialog-content>
+    <div class="container">
+        <form class="row gap-2" [formGroup]="formGroup">
+            <input type="hidden" [value]="data.id" formControlName="id" />
+
+            <div class="col-12 mx-auto photo-container py-2">
+                <div class="photo position-relative overflow-hidden" [ngStyle]="{'background-image': 'url(' + imagePath + ')'}">
+
+                    <div class="d-flex w-100 h-100 justify-content-between align-items-end">
+
+                        <!-- Edit Photo -->
+                        <div class="left-overlay overlay h-50 d-flex justify-content-center align-items-center" (click)="changeImage()">
+                            <mat-icon class="text-white" aria-hidden="false" fontIcon="edit"></mat-icon>
+                        </div>
+
+                        <!-- Remove Photo -->
+                        <div class="right-overlay overlay h-50 d-flex justify-content-center align-items-center" (click)="removeImage()">
+                            <mat-icon class="text-white" aria-hidden="false" fontIcon="delete"></mat-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <mat-form-field class="col-12">
+                <mat-label>
+                    Name
+                </mat-label>
+
+                <input matInput [value]="data.name" formControlName="name">
+
+                <mat-error *ngIf="hasError('name', 'required')">
+                    Name is <b>required</b> field
+                </mat-error>
+
+                <mat-error *ngIf="hasError('name', 'maxlength')">
+                    Max length is <b>120 character</b>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="col-12">
+                <mat-label>
+                    Birth date
+                </mat-label>
+
+                <input matInput [matDatepicker]="datepicker" [value]="data.birthOfDate" formControlName="birthOfDate" />
+                
+                <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+                <mat-datepicker #datepicker></mat-datepicker>
+
+                <mat-error *ngIf="hasError('birthOfDate', 'required')">
+                    Birth date is <b>required</b> field
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="col-12">
+                <mat-label>
+                    Phone
+                </mat-label>
+
+                <input matInput [value]="data.phone" formControlName="phone">
+
+                <mat-error *ngIf="hasError('phone', 'required')">
+                    Phone is <b>required</b> field
+                </mat-error>
+
+                <mat-error *ngIf="hasError('phone', 'maxlength')">
+                    Phone maximum length is <b>20 character</b>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="col-12">
+                <mat-label>
+                    Gender
+                </mat-label>
+
+                <mat-select formControlName="gender" [(value)]="data.gender">
+                  <mat-option value="0">Male</mat-option>
+                  <mat-option value="1">Female</mat-option>
+                </mat-select>
+
+                <mat-error *ngIf="hasError('gender', 'required')">
+                    Gender is <b>required</b> field
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="col-12">
+                <mat-label>
+                    Email
+                </mat-label>
+
+                <input matInput [value]="data.email" formControlName="email">
+
+                <mat-error *ngIf="hasError('email', 'required')">
+                    Email is <b>required</b> field
+                </mat-error>
+
+                <mat-error *ngIf="hasError('email', 'maxlength')">
+                    Email maximum length is <b>320 character</b>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="col-12">
+                <mat-label>
+                    Address
+                </mat-label>
+
+                <input matInput [value]="data.address" formControlName="address">
+
+                <mat-error *ngIf="hasError('address', 'required')">
+                    Address is <b>required</b> field
+                </mat-error>
+
+                <mat-error *ngIf="hasError('address', 'maxlength')">
+                    Address maximum length is <b>60 character</b>
+                </mat-error>
+            </mat-form-field>
+            
+            <input class="form-control d-none" type="file" id="image" #uploadPhoto (change)="onImageChanged($event)">
+        </form>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close (click)="cancel()">Cancel</button>
+    <button mat-button (click)="confirm()">{{ confirmButtonLabel }}</button>
+</mat-dialog-actions>

@@ -1,0 +1,37 @@
+form {
+    mat-form-field {
+        .mat-mdc-form-field-error-wrapper {
+            padding: 0 !important;
+        }
+    }
+
+    .photo-container {
+        width: 150px;
+
+        .photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 100%;
+            
+            outline: 3px solid gray;
+            box-shadow: 1px 1px 10px gray;
+
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+
+            &:hover {
+                .overlay {
+                    transform: translateY(0%);
+                }
+            }
+
+            .overlay {
+                background-color: rgba(0, 0, 0, 0.3);
+                transition: 0.3s;
+                width: calc(50% - 2px);
+                transform: translateY(100%);
+            }
+        }
+    }
+}

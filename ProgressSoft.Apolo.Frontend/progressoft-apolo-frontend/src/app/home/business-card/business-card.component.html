@@ -1,0 +1,145 @@
+<div class="container mt-5">
+    
+    <!-- Filter Section -->
+    <div class="col-12">
+        <form class="row justify-content-between" [formGroup]="filterForm">
+            <mat-form-field class="col-12 col-md-2">
+                <mat-label>
+                    Name
+                </mat-label>
+
+                <input matInput formControlName="name" #filterName>
+            </mat-form-field>
+
+            <mat-form-field class="col-12 col-md-3">
+                <mat-label>
+                    Birth date range
+                </mat-label>
+                
+                <mat-date-range-input [rangePicker]="picker">   
+                    <input matStartDate placeholder="Start date"  formControlName="fromBirthDate" #filterStartBirthDate >
+                    <input matEndDate placeholder="End date" formControlName="toBirthDate" #filterToBirthDate>
+                </mat-date-range-input>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+
+            <mat-form-field class="col-12 col-md-2">
+                <mat-label>
+                    Phone
+                </mat-label>
+
+                <input matInput formControlName="phone" #filterPhone>
+            </mat-form-field>
+
+            <mat-form-field class="col-12 col-md-2">
+                <mat-label>
+                    Gender
+                </mat-label>
+
+                <mat-select formControlName="gender" [(ngModel)]="selectedGender">
+                  <mat-option value="0">Male</mat-option>
+                  <mat-option value="1">Female</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="col-12 col-md-3">
+                <mat-label>
+                    Email
+                </mat-label>
+
+                <input matInput formControlName="email" #filterEmail>
+            </mat-form-field>
+        </form>
+    </div>
+
+    <!-- Actions Section -->
+     <div class="col-12 mb-3">
+        <div class="row justify-content-start gap-3">
+
+            <!-- Add new business card button -->
+             <div class="col-12 col-md-3">
+                <button class="btn btn-primary col-12" (click)="openDialog('add')">
+                    Add new card
+                </button>
+             </div>
+
+             <!-- Filter button -->
+              <div class="col-12 col-md-3">
+                <button class="btn btn-dark col-12" (click)="filter()">
+                    Filter
+                </button>
+              </div>
+
+              <!-- Clear filter button -->
+              <div class="col-12 col-md-3">
+                <button class="btn btn-secondary col-12" (click)="clearFilter()">
+                    Clear filter
+                </button>
+              </div>
+
+        </div>
+     </div>
+
+    <!-- Data Table Section -->
+     <div class="col-12">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef>Name</th>
+                <td mat-cell *matCellDef="let element">{{element.name}}</td>
+            </ng-container>
+
+            <!-- Birth Of Date Column -->
+            <ng-container matColumnDef="birthOfDate">
+                <th mat-header-cell *matHeaderCellDef>Birth Of Date</th>
+                <td mat-cell *matCellDef="let element">{{element.birthOfDate | date: 'yyyy-MM-dd'}}</td>
+            </ng-container>
+
+            <!-- Phone Column -->
+            <ng-container matColumnDef="phone">
+                <th mat-header-cell *matHeaderCellDef>Phone</th>
+                <td mat-cell *matCellDef="let element">{{element.phone}}</td>
+            </ng-container>
+
+            <!-- Gender Column -->
+            <ng-container matColumnDef="gender">
+                <th mat-header-cell *matHeaderCellDef>Gender</th>
+                <td mat-cell *matCellDef="let element">{{(element.gender == 0) ? 'Male' : 'Female' }}</td>
+            </ng-container>
+
+            <!-- Email Column -->
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef>Email</th>
+                <td mat-cell *matCellDef="let element">{{element.email}}</td>
+            </ng-container>
+
+            <!-- Actions Column -->
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef style="width: 180px"></th>
+                <td mat-cell *matCellDef="let element" style="width: 180px">
+                    <div class="row justify-content-center gap-2">
+
+                        <button class="btn btn-primary w-fit-content" (click)="openDialog('edit', element)">
+                            Edit
+                        </button>
+    
+                        <button class="btn btn-danger w-fit-content" (click)="openDialog('delete', element)">
+                            Delete
+                        </button>
+
+                    </div>
+                </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="6">
+                    <p class="my-4 text-center">No data available</p>
+                </td>
+            </tr>            
+        </table>
+     </div>
+</div>
