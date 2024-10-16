@@ -1,4 +1,5 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
+@import "bootstrap-icons/font/bootstrap-icons.scss";
 
 @font-face {
     font-family: 'Leckerli One';
@@ -8,8 +9,15 @@
 body, html {
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 .font-leckerli-one {
     font-family: 'Leckerli One', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+}
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.w-fit-content {
+    width: fit-content !important;
 }
