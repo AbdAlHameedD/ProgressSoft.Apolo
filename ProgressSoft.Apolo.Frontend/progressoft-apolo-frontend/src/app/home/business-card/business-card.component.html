@@ -142,4 +142,25 @@
             </tr>            
         </table>
      </div>
+
+     <!-- Export/Import Section -->
+      <div class="mt-3">
+        <!-- Export button -->
+        <div class="w-fit-content">
+            <button mat-button [matMenuTriggerFor]="exportMenu" class="col-12">
+                <mat-icon aria-hidden="false" aria-label="Export" fontIcon="download"></mat-icon>
+                Export
+            </button>
+
+            <mat-menu #exportMenu="matMenu" yPosition="above">
+                <button mat-menu-item (click)="export('CSV')">
+                    CSV
+                </button>
+
+                <button mat-menu-item (click)="export('XML')">
+                    XML
+                </button>
+            </mat-menu>
+          </div>
+      </div>
 </div>

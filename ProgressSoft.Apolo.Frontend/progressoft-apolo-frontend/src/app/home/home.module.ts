@@ -14,6 +14,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { DeleteDialogComponent } from './business-card/delete-dialog/delete-dialog.component';
 import { EditDialogComponent } from './business-card/business-card-dialog/edit-dialog/edit-dialog.component';
 import { AddDialogComponent } from './business-card/business-card-dialog/add-dialog/add-dialog.component';
+import {MatMenuModule} from '@angular/material/menu';
+
 
 
 @NgModule({
@@ -36,6 +38,7 @@ import { AddDialogComponent } from './business-card/business-card-dialog/add-dia
     MatTableModule,
     MatIconModule,
     MatDialogModule,
+    MatMenuModule
   ]
 })
 export class HomeModule { }

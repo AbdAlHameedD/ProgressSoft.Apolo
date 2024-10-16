@@ -29,12 +29,8 @@ export class BusinessCardComponent {
   public columnsToDisplay: Array<string> = ['name', 'birthOfDate', 'phone', 'gender', 'email', 'actions'];
   public selectedGender: string | null = null;
 
-  @ViewChild('filterName') filterName: ElementRef | undefined;
   @ViewChild('filterStartBirthDate') filterStartBirthDate: ElementRef | undefined;
   @ViewChild('filterToBirthDate') filterToBirthDate: ElementRef | undefined;
-  @ViewChild('filterPhone') filterPhone: ElementRef | undefined;
-  @ViewChild('filterGender') filterGender: ElementRef | undefined;
-  @ViewChild('filterEmail') filterEmail: ElementRef | undefined;
   
   readonly dialog = inject(MatDialog);
 
@@ -43,29 +39,18 @@ export class BusinessCardComponent {
   }
 
   public filter(): void {
-    const filterParameters: BusinessCardFilter = new BusinessCardFilter();
-    filterParameters.name = (this.filterName?.nativeElement.value) ? this.filterName?.nativeElement.value : null;
-    filterParameters.phone = (this.filterPhone?.nativeElement.value) ? this.filterPhone?.nativeElement.value : null;
-    filterParameters.email = (this.filterEmail?.nativeElement.value) ? this.filterEmail?.nativeElement.value : null;
-    filterParameters.gender = (this.selectedGender) ? parseInt(this.selectedGender) : null;
-    filterParameters.fromBirthDate = (this.filterStartBirthDate?.nativeElement.value) ? this.filterStartBirthDate?.nativeElement.value : null;
-    filterParameters.toBirthDate = (this.filterToBirthDate?.nativeElement.value) ? this.filterToBirthDate?.nativeElement.value : null;
+    const filter: BusinessCardFilter = this.getFilters();
 
-    this.getAll(filterParameters);
+    this.getAll(filter);
   }
 
   public clearFilter(): void {
-    this.filterName!.nativeElement.value = '';
-    this.filterPhone!.nativeElement.value = '';
-    this.filterEmail!.nativeElement.value = '';
-    this.selectedGender = null;
-    this.filterStartBirthDate!.nativeElement.value = '';
-    this.filterToBirthDate!.nativeElement.value = '';
+    this.filterForm.reset();
 
     this.getAll(new BusinessCardFilter());
   }
 
-  public getAll(filter: BusinessCardFilter) {
+  private getAll(filter: BusinessCardFilter) {
     this.businessService.getAll(filter).subscribe(result => {
       const mappedResult: Result<Array<BusinessCard>> = result as Result<Array<BusinessCard>>;
       
@@ -87,6 +72,18 @@ export class BusinessCardComponent {
 
       case 'delete':
         this.delete(element!);
+        break;
+    }
+  }
+
+  public export(type: string): void {
+    switch (type) {
+      case 'CSV':
+        this.exportCSV();
+        break;
+
+      case 'XML':
+        this.exportXML();
         break;
     }
   }
@@ -132,5 +129,46 @@ export class BusinessCardComponent {
         this.dataSource = this.dataSource.filter(card => card.id != element.id);
       }
     });
+  }
+
+  private exportCSV(): void {
+    const filter: BusinessCardFilter = this.getFilters();
+
+    this.businessService.exportCSV(filter).subscribe((result: Blob) => {
+      this.downloadBlob(result, 'Apolo_Business_Cards.csv');
+    });
+  }
+
+  private exportXML(): void {
+    const filter: BusinessCardFilter = this.getFilters();
+
+    this.businessService.exportXML(filter).subscribe((result: Blob) => {
+      this.downloadBlob(result, 'Apolo_Business_Cards.xml')
+    });
+  }
+
+  private getFilters(): BusinessCardFilter {
+    const filterParameters: BusinessCardFilter = this.filterForm.value as BusinessCardFilter;
+
+    filterParameters.gender = (this.selectedGender) ? parseInt(this.selectedGender) : null;
+    filterParameters.fromBirthDate = (this.filterStartBirthDate?.nativeElement.value) ? this.filterStartBirthDate?.nativeElement.value : null;
+    filterParameters.toBirthDate = (this.filterToBirthDate?.nativeElement.value) ? this.filterToBirthDate?.nativeElement.value : null;
+
+    return filterParameters;
+  }
+
+  private downloadBlob(blob: Blob, filename: string): void {
+    const url = window.URL.createObjectURL(blob);
+
+    const anchor = document.createElement('a');
+    anchor.style.display = 'none';
+    anchor.href = url;
+    anchor.download = filename;
+
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+
+    window.URL.revokeObjectURL(url);
   }
 }
