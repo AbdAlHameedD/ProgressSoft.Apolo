@@ -1,4 +1,6 @@
-﻿namespace ProgressSoft.Apolo.Application;
+﻿using System.Xml;
+
+namespace ProgressSoft.Apolo.Application;
 
 public interface IBusinessCardService : IBaseService<BusinessCardModel>
 {
@@ -6,4 +8,6 @@ public interface IBusinessCardService : IBaseService<BusinessCardModel>
     Result<BusinessCardModel> Edit(BusinessCardModel model);
     Result<IEnumerable<BusinessCardModel>> GetAll(BusinessCardFilter filter);
     Result<BusinessCardModel> GetById(int id);
+    MemoryStream ExportCSV(BusinessCardFilter filter);
+    MemoryStream ExportXML(BusinessCardFilter filter);
 }

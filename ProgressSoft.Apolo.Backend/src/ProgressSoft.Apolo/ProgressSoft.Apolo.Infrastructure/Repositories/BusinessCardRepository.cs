@@ -1,4 +1,6 @@
-﻿using ProgressSoft.Apolo.Application;
+﻿using Microsoft.EntityFrameworkCore;
+using ProgressSoft.Apolo.Application;
+using ProgressSoft.Apolo.Application.DTOs;
 using ProgressSoft.Apolo.Domain;
 
 namespace ProgressSoft.Apolo.Infrastructure;
@@ -52,8 +54,8 @@ public class BusinessCardRepository : BaseRepository<BusinessCard>, IBusinessCar
         try
         {
             BusinessCard? entity = (from businessCard in _apoloDbContext.BusinessCards
-                                          where businessCard.Id == id
-                                          select businessCard).First();
+                                    where businessCard.Id == id
+                                    select businessCard).First();
 
             return _resultHelper.GenerateSuccessResult(entity);
         }
@@ -71,7 +73,7 @@ public class BusinessCardRepository : BaseRepository<BusinessCard>, IBusinessCar
     {
         try
         {
-            IQueryable<BusinessCard> businessCards = from businessCard in _apoloDbContext.BusinessCards
+            IQueryable<BusinessCard> businessCards = from businessCard in _apoloDbContext.BusinessCards.Include(bc => bc.Image)
                                                      where (filter.Name == null || businessCard.Name.Contains(filter.Name)) &&
                                                            (filter.Gender == null || businessCard.Gender == filter.Gender) &&
                                                            (filter.Email == null || businessCard.Email.Contains(filter.Email)) &&
@@ -85,6 +87,37 @@ public class BusinessCardRepository : BaseRepository<BusinessCard>, IBusinessCar
         catch (Exception ex)
         {
             return _resultHelper.GenerateFailedResult<IQueryable<BusinessCard>>(ex);
+        }
+    }
+
+    public Result<IQueryable<BusinessCardExport>> GetForExport(BusinessCardFilter filter)
+    {
+        try
+        {
+            IQueryable<BusinessCardExport> businessCards = from businessCard in _apoloDbContext.BusinessCards.Include(bc => bc.Image)
+                                                           where (filter.Name == null || businessCard.Name.Contains(filter.Name)) &&
+                                                                 (filter.Gender == null || businessCard.Gender == filter.Gender) &&
+                                                                 (filter.Email == null || businessCard.Email.Contains(filter.Email)) &&
+                                                                 (filter.Phone == null || businessCard.Phone.Contains(filter.Phone)) &&
+                                                                 (filter.FromBirthDate == null || businessCard.BirthOfDate >= filter.FromBirthDate) &&
+                                                                 (filter.ToBirthDate == null || businessCard.BirthOfDate <= filter.ToBirthDate)
+                                                           select new BusinessCardExport
+                                                           {
+                                                               Address = businessCard.Address,
+                                                               BirthOfDate = businessCard.BirthOfDate,
+                                                               Email = businessCard.Email,
+                                                               Gender = businessCard.Gender,
+                                                               Image = Convert.ToBase64String(businessCard.Image!.EncodedImage),
+                                                               Name = businessCard.Name,
+                                                               Phone = businessCard.Phone,
+                                                               Id = businessCard.Id
+                                                           };
+
+            return _resultHelper.GenerateSuccessResult(businessCards);
+        }
+        catch (Exception ex)
+        {
+            return _resultHelper.GenerateFailedResult<IQueryable<BusinessCardExport>>(ex);
         }
     }
 }
