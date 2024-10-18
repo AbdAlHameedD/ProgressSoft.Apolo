@@ -22,7 +22,7 @@ export class EditDialogComponent extends BusinessCardDialog implements OnInit {
     imageService: ImageService,
     dialogRef: MatDialogRef<EditDialogComponent>) { 
 
-      super(imageService, dialogRef, businessCardService.edit);
+      super(imageService, dialogRef, businessCardService.edit.bind(businessCardService));
     }
 
   ngOnInit(): void {

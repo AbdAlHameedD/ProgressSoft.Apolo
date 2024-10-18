@@ -20,7 +20,7 @@ export class AddDialogComponent extends BusinessCardDialog {
     imageService: ImageService,
     dialogRef: MatDialogRef<AddDialogComponent>) {
 
-    super( imageService, dialogRef, businessCardService.add);
+    super( imageService, dialogRef, businessCardService.add.bind(businessCardService));
   }
 
   changeImage(): void {
