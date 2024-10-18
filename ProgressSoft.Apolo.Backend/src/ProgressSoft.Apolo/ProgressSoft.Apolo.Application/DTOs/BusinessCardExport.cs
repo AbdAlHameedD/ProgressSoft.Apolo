@@ -10,7 +10,9 @@ namespace ProgressSoft.Apolo.Application.DTOs
         public required DateOnly BirthOfDate { get; init; }
         public required string Email { get; init; }
         public required string Phone { get; init; }
-        public required string Image { get; init; }
         public required string Address { get; init; }
+        public required string Image { get; init; }
+
+        public required string ImageType { get; init; }
     }
 }

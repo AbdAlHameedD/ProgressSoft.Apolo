@@ -153,6 +153,7 @@ public class BusinessCardService : IBusinessCardService
                     cardElement.SetAttribute("Phone", card.Phone);
                     cardElement.SetAttribute("Address", card.Address);
                     cardElement.SetAttribute("Image", card.Image);
+                    cardElement.SetAttribute("ImageType", card.ImageType);
 
                     rootElement.AppendChild(cardElement);
                 }

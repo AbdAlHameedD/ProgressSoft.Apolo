@@ -110,7 +110,8 @@ public class BusinessCardRepository : BaseRepository<BusinessCard>, IBusinessCar
                                                                Image = Convert.ToBase64String(businessCard.Image!.EncodedImage),
                                                                Name = businessCard.Name,
                                                                Phone = businessCard.Phone,
-                                                               Id = businessCard.Id
+                                                               Id = businessCard.Id,
+                                                               ImageType = businessCard.Image.Type
                                                            };
 
             return _resultHelper.GenerateSuccessResult(businessCards);
