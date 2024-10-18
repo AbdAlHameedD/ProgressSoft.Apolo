@@ -2,7 +2,7 @@
 
 namespace ProgressSoft.Apolo.Application.DTOs
 {
-    public class BusinessCardExport
+    public abstract class ExternalBusinessCard
     {
         public int Id { get; init; }
         public required string Name { get; init; }
@@ -11,8 +11,5 @@ namespace ProgressSoft.Apolo.Application.DTOs
         public required string Email { get; init; }
         public required string Phone { get; init; }
         public required string Address { get; init; }
-        public required string Image { get; init; }
-
-        public required string ImageType { get; init; }
     }
 }

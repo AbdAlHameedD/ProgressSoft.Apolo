@@ -15,6 +15,7 @@ import { DeleteDialogComponent } from './business-card/delete-dialog/delete-dial
 import { EditDialogComponent } from './business-card/business-card-dialog/edit-dialog/edit-dialog.component';
 import { AddDialogComponent } from './business-card/business-card-dialog/add-dialog/add-dialog.component';
 import {MatMenuModule} from '@angular/material/menu';
+import { PreviewDialogComponent } from './business-card/preview-dialog/preview-dialog.component';
 
 
 
@@ -23,7 +24,8 @@ import {MatMenuModule} from '@angular/material/menu';
     BusinessCardComponent,
     DeleteDialogComponent,
     EditDialogComponent,
-    AddDialogComponent
+    AddDialogComponent,
+    PreviewDialogComponent
   ],
   imports: [
     CommonModule,

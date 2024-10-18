@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProgressSoft.Apolo.Application;
 using ProgressSoft.Apolo.Application.DTOs;
+using ProgressSoft.Apolo.Application.Interfaces.Repositories;
 using ProgressSoft.Apolo.Domain;
 
 namespace ProgressSoft.Apolo.Infrastructure;
@@ -14,6 +15,22 @@ public class BusinessCardRepository : BaseRepository<BusinessCard>, IBusinessCar
     {
         _apoloDbContext = apoloDbContext;
         _resultHelper = resultHelper;
+    }
+
+    public Result<IEnumerable<BusinessCard>> InsertBulk(IEnumerable<BusinessCard> businessCards)
+    {
+        try
+        {
+            _apoloDbContext.AddRange(businessCards);
+
+            bool areInserted = _apoloDbContext.SaveChangesAsync().Result > 0;
+
+            return _resultHelper.GenerateSuccessResult<IEnumerable<BusinessCard>>(businessCards);
+        }
+        catch (Exception ex)
+        {
+            return _resultHelper.GenerateFailedResult<IEnumerable<BusinessCard>>(ex);
+        }
     }
 
     /// <summary>
@@ -90,18 +107,18 @@ public class BusinessCardRepository : BaseRepository<BusinessCard>, IBusinessCar
         }
     }
 
-    public Result<IQueryable<BusinessCardExport>> GetForExport(BusinessCardFilter filter)
+    public Result<IQueryable<ExportBusinessCard>> GetForExport(BusinessCardFilter filter)
     {
         try
         {
-            IQueryable<BusinessCardExport> businessCards = from businessCard in _apoloDbContext.BusinessCards.Include(bc => bc.Image)
+            IQueryable<ExportBusinessCard> businessCards = from businessCard in _apoloDbContext.BusinessCards.Include(bc => bc.Image)
                                                            where (filter.Name == null || businessCard.Name.Contains(filter.Name)) &&
                                                                  (filter.Gender == null || businessCard.Gender == filter.Gender) &&
                                                                  (filter.Email == null || businessCard.Email.Contains(filter.Email)) &&
                                                                  (filter.Phone == null || businessCard.Phone.Contains(filter.Phone)) &&
                                                                  (filter.FromBirthDate == null || businessCard.BirthOfDate >= filter.FromBirthDate) &&
                                                                  (filter.ToBirthDate == null || businessCard.BirthOfDate <= filter.ToBirthDate)
-                                                           select new BusinessCardExport
+                                                           select new ExportBusinessCard
                                                            {
                                                                Address = businessCard.Address,
                                                                BirthOfDate = businessCard.BirthOfDate,
@@ -118,7 +135,7 @@ public class BusinessCardRepository : BaseRepository<BusinessCard>, IBusinessCar
         }
         catch (Exception ex)
         {
-            return _resultHelper.GenerateFailedResult<IQueryable<BusinessCardExport>>(ex);
+            return _resultHelper.GenerateFailedResult<IQueryable<ExportBusinessCard>>(ex);
         }
     }
 }

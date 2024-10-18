@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using ProgressSoft.Apolo.Application;
+using ProgressSoft.Apolo.Application.DTOs;
 using System.Xml;
 
 namespace ProgressSoft.Apolo.API.Controllers
@@ -111,6 +112,20 @@ namespace ProgressSoft.Apolo.API.Controllers
                 MemoryStream memoryStream = _businessCardService.ExportXML(filter);
 
                 return File(memoryStream, "application/xml", "Apolo_Business_Cards.xml");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpPost]
+        [Route("AddBulk")]
+        public IActionResult AddBulk([FromBody] List<ImportBusinessCard> businessCards)
+        {
+            try
+            {
+                return Ok(_businessCardService.AddBulk(businessCards));
             }
             catch (Exception ex)
             {

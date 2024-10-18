@@ -2,6 +2,9 @@
 using CsvHelper;
 using ProgressSoft.Apolo.Application;
 using ProgressSoft.Apolo.Application.DTOs;
+using ProgressSoft.Apolo.Application.Helpers;
+using ProgressSoft.Apolo.Application.Interfaces.Services;
+using ProgressSoft.Apolo.Application.Models;
 using ProgressSoft.Apolo.Domain;
 using System.Data;
 using System.Globalization;
@@ -14,12 +17,14 @@ public class BusinessCardService : IBusinessCardService
     private readonly IBusinessCardRepository _businessCardRepository;
     private readonly IMapper _mapper;
     private readonly ResultHelper _resultHelper;
+    private readonly IImageService _imageService;
 
-    public BusinessCardService(IBusinessCardRepository businessCardRepository, IMapper mapper, ResultHelper resultHelper)
+    public BusinessCardService(IBusinessCardRepository businessCardRepository, IMapper mapper, ResultHelper resultHelper, IImageService imageService)
     {
         _businessCardRepository = businessCardRepository;
         _mapper = mapper;
         _resultHelper = resultHelper;
+        _imageService = imageService;
     }
 
     public Result<BusinessCardModel> Add(AddBusinessCardCommand command)
@@ -94,8 +99,6 @@ public class BusinessCardService : IBusinessCardService
         {
             Result<BusinessCard> domainResult = _businessCardRepository.FindById(id);
 
-            BusinessCardModel model = _mapper.Map<BusinessCardModel>(domainResult.Data);
-
             return _resultHelper.GenerateResultFromDifferentResultType<BusinessCardModel, BusinessCard>(domainResult);
         }
         catch (Exception ex)
@@ -112,9 +115,10 @@ public class BusinessCardService : IBusinessCardService
         {
             CsvWriter csvWriter = new CsvWriter(new StreamWriter(memoryStream), new CultureInfo("en"));
 
-            IEnumerable<BusinessCardExport>? cards = _businessCardRepository.GetForExport(filter).Data;
+            IEnumerable<ExportBusinessCard>? cards = _businessCardRepository.GetForExport(filter).Data;
             if (cards is not null)
             {
+                csvWriter.Context.RegisterClassMap<ExportBusinessCardMap>();
                 csvWriter.WriteRecords(cards);
             }
             csvWriter.Flush();
@@ -138,10 +142,10 @@ public class BusinessCardService : IBusinessCardService
             XmlElement rootElement = xmlDocument.CreateElement("Apolo");
             xmlDocument.AppendChild(rootElement);
 
-            IEnumerable<BusinessCardExport>? cards = _businessCardRepository.GetForExport(filter).Data;
+            IEnumerable<ExportBusinessCard>? cards = _businessCardRepository.GetForExport(filter).Data;
             if (cards is not null)
             {
-                foreach (BusinessCardExport card in cards)
+                foreach (ExportBusinessCard card in cards)
                 {
                     XmlElement cardElement = xmlDocument.CreateElement("BusinessCard");
 
@@ -169,4 +173,32 @@ public class BusinessCardService : IBusinessCardService
 
         return memoryStream;
     }
+
+    public Result<IEnumerable<BusinessCardModel>> AddBulk(IEnumerable<ImportBusinessCard> businessCards)
+    {
+        try
+        {
+            List<BusinessCard> cards = new List<BusinessCard>(businessCards.Count());
+            foreach (ImportBusinessCard businessCard in businessCards)
+            {
+                BusinessCardModel card = _mapper.Map<BusinessCardModel>(businessCard);
+                if (card.ImageId == -1)
+                {
+                    Result<ImageModel> imageDomainResult = _imageService.Add(new ImageModel { EncodedImage = businessCard.Image!, Type = businessCard.ImageType! });
+                    card.ImageId = imageDomainResult.Data.Id;
+                }
+
+                cards.Add(_mapper.Map<BusinessCard>(card));
+            }
+
+            Result<IEnumerable<BusinessCard>> domainResult = _businessCardRepository.InsertBulk(cards);
+
+            return _resultHelper.GenerateResultFromDifferentResultType<IEnumerable<BusinessCardModel>, IEnumerable<BusinessCard>>(domainResult);
+        }
+        catch (Exception ex)
+        {
+            return _resultHelper.GenerateFailedResult<IEnumerable<BusinessCardModel>>(ex);
+        }
+    }
 }
+

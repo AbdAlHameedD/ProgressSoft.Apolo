@@ -1,0 +1,126 @@
+<h2 mat-dialog-title class="text-center">Import <b> {{ displayedCard.name }} </b> Business Cards</h2>
+<mat-dialog-content>
+    
+    <div class="w-100">
+        <div class="row flex-column">
+            <!-- Image Container -->
+            <div class="col-12 d-flex justify-content-center align-items-center p-3">
+                <div class="preview-photo" [ngStyle]="{'background-image': 'url(data:' + displayedCard.imageType + ';base64,' + displayedCard.image + '), url(/assets/images/blank-profile-picture.png)'}"></div>
+            </div>
+
+            <!-- Fields Container -->
+            <div class="col-10 mx-auto">
+                <form class="row flex-column" [formGroup]="formGroup">
+
+                    <mat-form-field class="col-12">
+                        <mat-label>
+                            Name
+                        </mat-label>
+        
+                        <input matInput formControlName="name">
+                        
+                        <mat-error *ngIf="hasError('name', 'required')">
+                            Name is <b>required</b> field
+                        </mat-error>
+        
+                        <mat-error *ngIf="hasError('name', 'maxlength')">
+                            Max length is <b>120 character</b>
+                        </mat-error>
+                        
+                    </mat-form-field>
+
+                    <mat-form-field class="col-12">
+                        <mat-label>
+                            Birth date
+                        </mat-label>
+        
+                        <input matInput [matDatepicker]="datepicker" formControlName="birthOfDate" />
+                        
+                        <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+                        <mat-datepicker #datepicker></mat-datepicker>
+        
+                        <mat-error *ngIf="hasError('birthOfDate', 'required')">
+                            Birth date is <b>required</b> field
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="col-12">
+                        <mat-label>
+                            Phone
+                        </mat-label>
+        
+                        <input matInput formControlName="phone">
+        
+                        <mat-error *ngIf="hasError('phone', 'required')">
+                            Phone is <b>required</b> field
+                        </mat-error>
+        
+                        <mat-error *ngIf="hasError('phone', 'maxlength')">
+                            Phone maximum length is <b>20 character</b>
+                        </mat-error>
+                    </mat-form-field>
+        
+                    <mat-form-field class="col-12">
+                        <mat-label>
+                            Gender
+                        </mat-label>
+        
+                        <mat-select formControlName="gender">
+                          <mat-option value="Male">Male</mat-option>
+                          <mat-option value="Female">Female</mat-option>
+                        </mat-select>
+        
+                        <mat-error *ngIf="hasError('gender', 'required')">
+                            Gender is <b>required</b> field
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="col-12">
+                        <mat-label>
+                            Email
+                        </mat-label>
+        
+                        <input matInput formControlName="email">
+        
+                        <mat-error *ngIf="hasError('email', 'required')">
+                            Email is <b>required</b> field
+                        </mat-error>
+        
+                        <mat-error *ngIf="hasError('email', 'maxlength')">
+                            Email maximum length is <b>320 character</b>
+                        </mat-error>
+                    </mat-form-field>
+        
+                    <mat-form-field class="col-12">
+                        <mat-label>
+                            Address
+                        </mat-label>
+        
+                        <input matInput formControlName="address">
+        
+                        <mat-error *ngIf="hasError('address', 'required')">
+                            Address is <b>required</b> field
+                        </mat-error>
+        
+                        <mat-error *ngIf="hasError('address', 'maxlength')">
+                            Address maximum length is <b>60 character</b>
+                        </mat-error>
+                    </mat-form-field>
+                </form>
+            </div>
+
+            <!-- Progress bar -->
+            <div class="col-10 mx-auto my-3 p-0 d-flex justify-content-start progress-bar-container" #progress>
+                <div class="h-100 progress" *ngFor="let item of data" [ngStyle]="{'width': (100 / data.length) + '%'}"></div>
+            </div>
+        </div>
+    </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close (click)="cancel()">Cancel</button>
+    <button mat-button (click)="discard()">Discard</button>
+    <button mat-button [ngClass]="{'hide': isDisplayedLastItem}" (click)="next()">Next</button>
+    <button mat-button [ngClass]="{'show': isDisplayedLastItem, 'hide': !isDisplayedLastItem}" (click)="next()">Add</button>
+</mat-dialog-actions>

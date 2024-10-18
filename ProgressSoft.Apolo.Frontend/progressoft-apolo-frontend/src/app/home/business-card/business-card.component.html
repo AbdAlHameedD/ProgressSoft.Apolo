@@ -144,10 +144,10 @@
      </div>
 
      <!-- Export/Import Section -->
-      <div class="mt-3">
+      <div class="mt-3 d-flex gap-3">
         <!-- Export button -->
         <div class="w-fit-content">
-            <button mat-button [matMenuTriggerFor]="exportMenu" class="col-12">
+            <button mat-button [matMenuTriggerFor]="exportMenu" class="col-12 custom-border-apolo-1">
                 <mat-icon aria-hidden="false" aria-label="Export" fontIcon="download"></mat-icon>
                 Export
             </button>
@@ -162,5 +162,15 @@
                 </button>
             </mat-menu>
           </div>
-      </div>
+
+        <!-- Import Button -->
+        <div class="w-fit-content">
+            <button mat-button class="col-12 custom-border-apolo-1" (click)="openImportDialog()">
+                <mat-icon aria-hidden="false" aria-label="Export" fontIcon="upload"></mat-icon>
+                Import
+            </button>
+        </div>
+    </div>
 </div>
+
+<input type="file" accept=".csv, .xml" class="d-none" id="import" (change)="onImport($event)" #import />
